@@ -3,26 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Deutsches Picolo</title>
-    <script>
-        // Erkennt das Betriebssystem
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    <title>YoNo – Das ehrliche Partyspiel</title>
+    <meta name="description" content="YoNo – das ehrliche Partyspiel für eure nächste Runde. Kostenlos für iPhone & Android.">
 
-        // 1. Wenn es ein iPhone/iPad ist -> Ab zum Apple App Store
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            window.location.replace("https://apps.apple.com/de/app/yono-das-ehrliche-partyspiel/id6761210694");
+    <!-- Link-Vorschau für WhatsApp, iMessage, Telegram, Facebook usw. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="YoNo">
+    <meta property="og:title" content="YoNo – Das ehrliche Partyspiel">
+    <meta property="og:description" content="Kostenlos für iPhone & Android 🍻">
+    <meta property="og:url" content="https://yono-partygame.github.io/">
+    <meta property="og:image" content="https://yono-partygame.github.io/preview.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="YoNo App-Icon">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Icon im Browser-Tab / auf dem Homescreen -->
+    <link rel="icon" href="preview.jpg">
+    <link rel="apple-touch-icon" href="preview.jpg">
+
+    <script>
+        var APP_STORE  = "https://apps.apple.com/app/id6761210694";
+        var PLAY_STORE = "https://play.google.com/store/apps/details?id=com.alexl.tacheles";
+
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        // iPads mit iPadOS 13+ geben sich als "Macintosh" aus -> über Touch erkennen
+        var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+                    (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+        var isAndroid = /android/i.test(ua);
+
+        if (isIOS) {
+            window.location.replace(APP_STORE);
+        } else if (isAndroid) {
+            window.location.replace(PLAY_STORE);
         }
-        // 2. Wenn es ein Android ist -> Ab zum Google Play Store
-        else if (/android/i.test(userAgent)) {
-            window.location.replace("https://play.google.com/store/apps/details?id=com.alexl.tacheles");
-        }
-        // 3. Fallback (Wenn jemand am PC scannt) -> Zurück zu einer Webseite oder Linktree
-        else {
-            window.location.replace("https://apps.apple.com/de/app/yono-das-ehrliche-partyspiel/id6761210694"); 
-        }
+        // Am PC: keine Weiterleitung, die Seite zeigt beide Store-Buttons
     </script>
+
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 32px 16px;
+            background-color: #081731;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            text-align: center;
+        }
+        img.logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 36px;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.25), 0 0 40px rgba(255, 68, 102, 0.25);
+        }
+        h1 { margin: 0; font-size: 26px; }
+        p  { margin: 0; opacity: 0.75; }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 320px;
+        }
+        .buttons a {
+            display: block;
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-weight: 600;
+            font-size: 17px;
+            text-decoration: none;
+        }
+        .buttons a:hover { background: rgba(255, 255, 255, 0.12); }
+    </style>
 </head>
-<body style="background-color: #1a1a1a; color: #fff; font-family: sans-serif; text-align: center; padding-top: 20%;">
-    <h2>Leite zum App Store weiter... 🚀</h2>
+<body>
+    <img class="logo" src="preview.jpg" alt="YoNo App-Icon">
+    <h1>YoNo – Das ehrliche Partyspiel</h1>
+    <p>Kostenlos für iPhone &amp; Android 🍻</p>
+    <div class="buttons">
+        <a href="https://apps.apple.com/app/id6761210694"> App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.alexl.tacheles">▶ Google Play</a>
+    </div>
 </body>
 </html>
